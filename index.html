@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A workbook and guide for single women buying a home on one income in the UK.">
+<title>The Solo Buyer Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single readable column; the hero pairs the promise with a sample "completion statement" ledger, the subject's own document. */
+:root{
+  --paper:#eef1f4; --surface:#ffffff; --ink:#1b2430; --muted:#4f5b69; --line:#c9d1da;
+  --brass:#a3681c; --brass-soft:#f4e6cf; --slate:#24405e;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11161d; --surface:#18202a; --ink:#e7ecf1; --muted:#a3afbd; --line:#2c3846;
+  --brass:#e0a556; --brass-soft:#2c2416; --slate:#9cc0e6; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#11161d; --surface:#18202a; --ink:#e7ecf1; --muted:#a3afbd; --line:#2c3846;
+  --brass:#e0a556; --brass-soft:#2c2416; --slate:#9cc0e6; color-scheme:dark }
+
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+a{color:var(--slate)}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+
+header.top{padding-block:20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.mark{font-family:var(--display);font-size:20px}
+.mark span{color:var(--brass)}
+.tag{font-size:14px;color:var(--muted)}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-block:32px 56px}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(36px,5.4vw,58px);margin-block:14px 18px}
+.hero .lede{font-size:19px;color:var(--muted);max-width:34em}
+.cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600;padding:14px 22px;border-radius:6px;border:2px solid var(--ink)}
+.btn:hover{background:var(--brass);border-color:var(--brass)}
+.btn:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.price{font-size:15px;color:var(--muted)}
+.price b{color:var(--ink)}
+
+.ledger{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:22px 22px 18px;font-family:var(--mono);font-size:14px;box-shadow:0 18px 40px -28px rgba(20,30,45,.45)}
+.ledger h3{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;display:flex;justify-content:space-between;gap:8px}
+.ledger dl{margin:14px 0 0;display:grid;grid-template-columns:1fr auto;row-gap:8px;column-gap:16px;font-variant-numeric:tabular-nums}
+.ledger dt{color:var(--muted)} .ledger dd{margin:0;text-align:right}
+.ledger .total{border-top:1px dashed var(--line);padding-top:10px;font-weight:500;color:var(--ink)}
+.ledger .flag{margin-top:16px;background:var(--brass-soft);color:var(--ink);padding:10px 12px;border-radius:3px;font-family:var(--body);font-size:14px;line-height:1.45}
+.ledger .note{margin-top:10px;font-size:12px;color:var(--muted);font-family:var(--body)}
+
+section{padding-block:56px;border-top:1px solid var(--line)}
+section h2{font-size:clamp(28px,3.6vw,38px);margin-bottom:14px}
+.narrow{max-width:680px}
+.narrow p + p{margin-top:14px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:32px}
+.fact b{display:block;font-family:var(--display);font-weight:400;font-size:40px;color:var(--brass);line-height:1}
+.fact p{margin-top:8px;color:var(--muted);font-size:15px}
+.src{margin-top:20px;font-size:13px;color:var(--muted)}
+
+.inside{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;margin-top:28px;list-style:none;padding:0;counter-reset:part}
+.inside li{padding-block:18px;border-bottom:1px solid var(--line);min-width:0}
+.inside h3{font-size:21px;margin-bottom:6px}
+.inside p{color:var(--muted);font-size:16px}
+
+.offer{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-top:8px}
+.offer > *{min-width:0}
+.offer .big{font-family:var(--display);font-size:52px;line-height:1}
+.offer .big s{font-size:24px;color:var(--muted);margin-left:8px}
+.offer ul{margin:14px 0 0;padding-left:20px;color:var(--muted)}
+.notfor{margin-top:28px;color:var(--muted);font-size:15px;max-width:680px}
+
+.faq details{border-bottom:1px solid var(--line);padding-block:16px}
+.faq summary{cursor:pointer;font-weight:600}
+.faq summary:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+.faq details p{margin-top:10px;color:var(--muted)}
+footer{padding-block:32px 48px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:32px}
+  .facts{grid-template-columns:1fr;gap:20px}
+  .inside{grid-template-columns:1fr}
+  .offer{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){.btn{transition:background .15s,border-color .15s}}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="mark">The Solo Buyer <span>Plan</span></div>
+    <div class="tag">For buying a home on one income in the UK</div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Workbook + guide · launching soon</div>
+      <h1>Buy a home on your own, with a plan built for one income.</h1>
+      <p class="lede">Know the total cash you need, test whether one salary can carry the mortgage, and set up the safety net that a second earner would normally be.</p>
+      <div class="cta-row">
+        <a class="btn" href="#join">Join the waitlist</a>
+        <span class="price">Early bird <b>£9</b> · then £14</span>
+      </div>
+    </div>
+
+    <aside class="ledger" aria-label="Sample from the workbook">
+      <h3><span>True cost · sample</span><span>Example figures</span></h3>
+      <dl>
+        <dt>Purchase price</dt><dd>£210,000</dd>
+        <dt>Deposit (10%)</dt><dd>£21,000</dd>
+        <dt>Stamp Duty / LBTT / LTT</dt><dd>by nation</dd>
+        <dt>Solicitor + searches</dt><dd>£1,800</dd>
+        <dt>Survey (Level 2)</dt><dd>£550</dd>
+        <dt>Moving + first month</dt><dd>£1,200</dd>
+        <dt>Repair fund, year one</dt><dd>£2,100</dd>
+        <dt class="total">Cash needed</dt><dd class="total">£26,650 + tax</dd>
+      </dl>
+      <p class="flag">Stress test: at +1.5 points, repayments rise to 38% of take-home pay. Above your 35% limit, so look at a lower price or bigger deposit.</p>
+      <p class="note">Illustrative numbers, not a quote. You enter your own.</p>
+    </aside>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="narrow">
+      <div class="eyebrow">Why this exists</div>
+      <h2>Most home-buying advice quietly assumes two salaries.</h2>
+      <p>Calculators, planners and spreadsheets are built for couples. Buying alone changes the maths: one income for the deposit, one person for every repair, and nobody to cover the mortgage if work dries up for a month.</p>
+      <p>More single women now plan to buy alone than with a partner. This plan is for them.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>37%</b><p>of women who don't yet own plan to buy solo, against 35% with a partner.</p></div>
+      <div class="fact"><b>38%</b><p>say saving a deposit on one income is their biggest hurdle.</p></div>
+      <div class="fact"><b>46%</b><p>worry about being solely responsible for unexpected repairs.</p></div>
+    </div>
+    <p class="src">Source: Skipton Building Society survey of 1,000 women, reported by <a href="https://www.mortgagesolutions.co.uk/mortgage-news/2025/08/07/more-women-planning-to-buy-solo-than-with-a-partner/">Mortgage Solutions</a>, August 2025.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">What's inside</div>
+    <h2>One workbook, one short guide, six tools.</h2>
+    <ul class="inside">
+      <li><h3>True-cost calculator</h3><p>Deposit, Stamp Duty, LBTT or LTT, solicitor, survey and moving, totalled into the one figure you actually need.</p></li>
+      <li><h3>Single-income stress test</h3><p>See your repayment if rates rise or your income drops, against a limit you set on take-home pay.</p></li>
+      <li><h3>Deposit timeline</h3><p>Months to your target, with a Lifetime ISA bonus tracker built in.</p></li>
+      <li><h3>Every route on one page</h3><p>Standard mortgage, Shared Ownership, Lifetime ISA, joint borrower sole proprietor and family gifts, side by side.</p></li>
+      <li><h3>Solo safety net</h3><p>A repair-fund target and a checklist for income protection, a will and an emergency pot.</p></li>
+      <li><h3>Broker and viewing scripts</h3><p>The questions to ask when you are the only earner on the application.</p></li>
+    </ul>
+    <p class="src">Works in Google Sheets and Excel. Guide delivered as a PDF.</p>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <div class="eyebrow">Early bird</div>
+    <h2>Get it first, for less.</h2>
+    <div class="offer">
+      <div>
+        <div class="big">£9<s>£14</s></div>
+        <ul>
+          <li>Early-bird price open until 14 November 2026</li>
+          <li>Delivered to your inbox when it's ready</li>
+          <li>Full refund if it isn't useful to you</li>
+        </ul>
+      </div>
+      <!-- Replace both hrefs with the live Tally waitlist and Stripe pre-order links -->
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a class="btn" href="https://tally.so" id="waitlist-link">Join the waitlist</a>
+        <a href="https://buy.stripe.com" id="preorder-link">or pre-order now for £9</a>
+      </div>
+    </div>
+    <p class="notfor">Not financial advice, and not a mortgage recommendation. It's the planning you do before you speak to a broker, so you arrive knowing your numbers. For free guidance, see <a href="https://www.moneyhelper.org.uk">MoneyHelper</a>.</p>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap narrow">
+    <h2>Questions</h2>
+    <details><summary>Does it work in Scotland and Wales?</summary><p>Yes. The cost calculator handles Stamp Duty in England, LBTT in Scotland and LTT in Wales. Northern Ireland isn't covered yet.</p></details>
+    <details><summary>Do I need to be a first-time buyer?</summary><p>No. It suits anyone buying alone, including after a separation. Some schemes it compares are first-time buyer only, and it says which.</p></details>
+    <details><summary>I'm not ready to buy for years. Is it too early?</summary><p>The deposit timeline is most useful early. It turns "one day" into a date you can plan around.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">The Solo Buyer Plan · A Noor Intelligence product · Wincanton, Somerset</div>
+</footer>
+</body>
+</html>
